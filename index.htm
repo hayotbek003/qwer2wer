@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SUNSET — CHEAT& CHEAT | PUBG Mobile</title>
+<meta name="description" content="SUNSET — известный игрок PUBG Mobile. CHEATи CHEAT для стабильного пинга и повышенного FPS." />
+<link rel="icon" href="data:,">
+<style>
+  /* ---------- Variables & reset ---------- */
+:root{
+  --bg:#0a0a0a; /* глубокий чёрный фон */
+  --panel:#1c0c0c; /* тёмно-красный панельный фон */
+  --muted:#bb9999; /* мягкий красноватый текст */
+  --neon1:#ff0000; /* яркий красный неон */
+  --neon2:#8b0000; /* тёмный красный/бордовый */
+  --neon3:#ff4500; /* оранжево-красный акцент */
+  --accent:linear-gradient(90deg,var(--neon1),var(--neon2),var(--neon3));
+  --glass: rgba(255,0,0,0.04);
+  --radius:16px;
+  --maxw:1100px;
+}
+
+/* Glowing interactive elements */
+.ghost {
+  color: var(--neon1);
+  border-color: rgba(255,0,0,0.6);
+  text-shadow: 0 0 6px var(--neon1), 0 0 14px var(--neon2);
+  transition:0.2s;
+}
+.ghost:hover {
+  background: rgba(255,0,0,0.12);
+  box-shadow: 0 0 12px var(--neon1), 0 0 28px var(--neon2);
+}
+
+/* Hero highlights */
+.highlight{
+  background: linear-gradient(90deg, var(--neon1), var(--neon2), var(--neon3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 6px var(--neon1), 0 0 16px var(--neon2);
+}
+
+/* Card glow */
+.card{
+  box-shadow: 0 0 14px rgba(255,0,0,0.08), 0 0 28px rgba(139,0,0,0.05);
+  transition:transform .22s, box-shadow .22s;
+}
+.card:hover{
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:0 12px 40px rgba(255,0,0,0.2),0 12px 60px rgba(139,0,0,0.12);
+}
+.buy{
+  background: linear-gradient(90deg, var(--neon1), var(--neon2), var(--neon3));
+  box-shadow:0 10px 40px rgba(255,0,0,0.12), 0 0 30px rgba(139,0,0,0.08);
+  color:#111; 
+}
+
+/* Glitch & scanline */
+.glitch{
+  text-shadow:
+    0 0 4px var(--neon1),
+    0 0 8px var(--neon2),
+    0 0 16px var(--neon3);
+}
+.glitch::before{
+  filter: blur(1px) drop-shadow(0 0 2px var(--neon1));
+}
+.glitch::after{
+  filter: blur(1.2px) drop-shadow(0 0 2px var(--neon2));
+}
+.scanline{
+  background-image: linear-gradient(rgba(255,0,0,0.02) 1px, transparent 1px);
+}
+
+/* Pulse animation on beat */
+.pulse-on-beat{
+  transform: scale(var(--beat-scale));
+  box-shadow:
+    0 20px 60px rgba(255,0,0,0.18),
+    0 0 40px rgba(139,0,0,0.12),
+    0 0 60px rgba(255,69,0,0.1);
+  transition: transform .12s, box-shadow .12s;
+}
+
+
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter, "Segoe UI", Roboto, system-ui, -apple-system; background:radial-gradient(1200px 600px at 10% 10%, rgba(0,80,120,0.06), transparent), var(--bg); color:#e6eef8}
+  a{color:inherit}
+  .wrap{width:100%;max-width:var(--maxw);margin:30px auto;padding:18px}
+
+  /* ---------- Header ---------- */
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+  .brand{display:flex; align-items:center; gap:12px}
+  .avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--neon1),var(--neon2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;color:#021;box-shadow:0 8px 30px rgba(100,0,255,0.12)}
+  .brand h1{margin:0;font-size:20px;letter-spacing:0.6px}
+  .brand p{margin:0;color:var(--muted);font-size:13px}
+  nav{display:flex;gap:10px;align-items:center}
+  .btn{background:linear-gradient(90deg,#ffd166,#ff6b6b); color:#081018;padding:10px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:0 8px 30px rgba(255,80,80,0.12)}
+  .ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none}
+
+  /* ---------- Hero ---------- */
+  .hero{display:grid;grid-template-columns:1fr 380px;gap:20px;padding:26px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+  .hero-left h2{margin:0;font-size:30px}
+  .highlight{background:linear-gradient(90deg,var(--neon1),var(--neon2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-left p{color:var(--muted);margin:10px 0 16px;line-height:1.45}
+  .kpi{display:flex;gap:10px;flex-wrap:wrap}
+  .kpi .item{background:rgba(255,255,255,0.02);padding:10px 12px;border-radius:10px;color:#dff7ff;font-weight:700}
+
+  .hero-right{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);display:flex;flex-direction:column;gap:12px;align-items:stretch}
+  .socials{display:flex;gap:8px;flex-wrap:wrap}
+  .socials a{padding:10px 12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));text-decoration:none;color:var(--muted);font-weight:700}
+
+  /* ---------- Glitch / scanline ---------- */
+  .glitch-wrap{position:relative;display:inline-block}
+  .glitch{
+    font-weight:900;font-size:42px;line-height:1;letter-spacing:1px;
+    position:relative; display:inline-block;
+    color:#fff;
+    text-shadow:0 0 10px rgba(0,240,255,0.08);
+    mix-blend-mode:screen;
+  }
+  .glitch::before, .glitch::after{
+    content:attr(data-text); position:absolute; left:0; top:0; width:100%;
+    clip-path: inset(0 0 0 0);
+    opacity:0.85;
+  }
+  .glitch::before{transform:translate(-2px,-1px); color:var(--neon1);opacity:0.9;filter:blur(0.6px)}
+  .glitch::after{transform:translate(2px,1px); color:var(--neon2); opacity:0.8; filter:blur(0.8px)}
+  .scanline{position:absolute;left:0;right:0;top:0;bottom:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px);background-size:100% 4px;border-radius:8px;mix-blend-mode:overlay}
+
+  /* ---------- Products ---------- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);position:relative;overflow:hidden}
+  .card h3{margin:0 0 6px 0}
+  .meta{color:var(--muted);font-size:13px}
+  .price{font-weight:900;font-size:20px;margin-top:8px}
+  .buy{display:inline-block;margin-top:10px;text-decoration:none;padding:9px 12px;border-radius:10px;background:linear-gradient(90deg,var(--neon1),var(--neon2));color:#021;font-weight:800;box-shadow:0 10px 30px rgba(0,200,255,0.08)}
+  .card::after{content:'';position:absolute;inset:auto -40% -40% auto;width:120px;height:120px;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.03), transparent);transform:rotate(30deg);opacity:0.8}
+
+  /* hover glow */
+  .card:hover{transform:translateY(-6px) scale(1.01);transition:transform .22s}
+  .card:hover .buy{transform:translateY(-2px); box-shadow:0 18px 60px rgba(100,0,255,0.12)}
+
+  /* ---------- Testimonials / footer ---------- */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  .testimonial{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);color:var(--muted)}
+
+  footer{margin-top:18px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+
+  /* ---------- Modal ---------- */
+  .modal-back{position:fixed;left:0;top:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;background:rgba(1,3,7,0.75);z-index:99}
+  .modal{width:100%;max-width:520px;background:linear-gradient(180deg,#041022,#08142a);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+  .pay-options{display:flex;gap:10px;flex-wrap:wrap}
+  .pay{padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.02);cursor:pointer;border:1px solid rgba(255,255,255,0.03)}
+  .close{background:transparent;color:var(--muted);border:none;cursor:pointer;font-weight:700}
+
+  /* ---------- Beat pulsing (controlled via .beat class) ---------- */
+  .beatable{transition:box-shadow .12s, transform .12s}
+  :root.beat-1 { --beat-scale: 1.01; }
+  :root.beat-0 { --beat-scale: 1; }
+  .pulse-on-beat{transform:scale(var(--beat-scale)); box-shadow:0 20px 60px rgba(0,200,255,0.06);}
+
+  /* ---------- Controls ---------- */
+  .controls{display:flex;gap:8px;align-items:center}
+  .play-cta{padding:10px 12px;border-radius:10px;background:linear-gradient(90deg,var(--neon1),var(--neon2));color:#021;font-weight:800;border:none;cursor:pointer}
+  .mute{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    .hero{grid-template-columns:1fr}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .two{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    .grid{grid-template-columns:1fr}
+    header{flex-direction:column;align-items:flex-start;gap:12px}
+    nav{width:100%;display:flex;justify-content:space-between}
+    .hero-right{order:2}
+    .glitch{font-size:28px}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar">S</div>
+        <div>
+          <h1>SUNSET</h1>
+          <p>CHEAT — PUBG Mobile • Pro Player</p>
+        </div>
+      </div>
+      <nav>
+        <a class="ghost" href="products.html">Товары</a>
+        <!-- <a class="ghost" href="#prices">Цены</a> -->
+        <!-- <a class="ghost" href="#reviews">Отзывы</a> -->
+        <!-- <button id="openBuyTop" class="btn">Купить</button> -->
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="glitch-wrap">
+            <div class="glitch" data-text="SUNSET">SUNSET</div>
+            <div class="scanline" aria-hidden="true"></div>
+          </div>
+          <h2>CHEAT& CHEAT от <span class="highlight">известного игрока PUBG Mobile</span></h2>
+          <p> минимального пинга и плавного recoil'а. Протестировано в ранге.</p>
+          <div class="kpi">
+            <div class="item beatable">🏆 10k+ подписчиков</div>
+            <div class="item beatable">⚡ -40% пинга (на тестах)</div>
+            <div class="item beatable">🚀 Моментальная выдача</div>
+          </div>
+
+<div style="margin-top:18px">
+  <h4 id="products">Товары</h4>
+  <div class="grid" aria-hidden="false">
+    
+    <article class="card pulse-on-beat" data-link="cfg.html">
+      <h3>CHEAT Android</h3>
+      <div class="meta">Оптимизация FPS для слабых/средних устройств</div>
+      <div class="price">100%</div>
+      <a href="cfg.html" 
+         class="btn" 
+         style="margin-top:10px; display:inline-block;">
+        Подробнее
+      </a>
+    </article>
+
+    <article class="card pulse-on-beat" data-link="VPN.html">
+      <h3>CHEAT IOS</h3>
+      <div class="meta">Ремап, recoil control, advanced settings</div>
+      <div class="price">100%</div>
+      <a href="VPN.html" 
+         class="btn" 
+         style="margin-top:10px; display:inline-block;">
+        Подробнее
+      </a>
+    </article>
+
+    <article class="card pulse-on-beat" data-link="PremiumCFG.html">
+      <h3>CHEAT  Premium <h3>
+      <div class="meta">Hide Bot Bullet Track Esp </div>
+      <div class="price">100%</div>
+      <a href="PremiumCFG.html" 
+         class="btn" 
+         style="margin-top:10px; display:inline-block;">
+        Подробнее
+      </a>
+    </article>
+
+  </div>
+</div>
+
+          <div class="two">
+            <div class="testimonial">
+              <strong>Отзывы</strong>
+              <blockquote>«CHEATот SUNSET — лучшая вещь. Фпс +30, пинги с 240 до 80 — магия.»</blockquote>
+              <div style="margin-top:8px;color:var(--muted)">— @cfgup</div>
+            </div>
+
+            <div class="testimonial">
+              <strong>Гайды</strong>
+              <p class="meta">Смотреть стримы и короткие разборы на TikTok и YouTube — ссылки ниже.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="hero-right">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:900">SUNSET</div>
+              <div style="color:var(--muted)">Pro PUBG Mobile • CHEAT& CHEAT seller</div>
+            </div>
+
+            <div class="controls">
+              <button id="playBtn" class="play-cta">Play Beat</button>
+              <button id="muteBtn" class="mute">Mute</button>
+            </div>
+          </div>
+
+          <div>
+            <label for="volume" style="color:var(--muted);font-size:13px">Громкость</label>
+            <input id="volume" type="range" min="0" max="1" step="0.01" value="0.5" style="width:100%;margin-top:6px">
+          </div>
+
+          <div style="margin-top:6px">
+            <strong>Соцсети</strong>
+            <div class="socials" style="margin-top:8px">
+              <a href="https://t.me/mogilawr" target="_blank">Telegram</a>
+              <a href="https://www.instagram.com/SUNSET.dvv/?utm_source=ig_web_button_share_sheet" target="_blank">Instagram</a>
+              <a href="https://www.tiktok.com/@mogilawr" target="_blank">TikTok</a>
+            </div>
+
+          </div>
+
+          <div style="margin-top:6px">
+            <strong>Статус</strong>
+            <div class="meta" id="playerStatus">Offline</div>
+          </div>
+
+          <div style="margin-top:10px">
+            <strong>Быстрый FAQ</strong>
+            <div class="meta" style="margin-top:6px">Оплата — любой удобный способ. Выдача — мгновенная после оплаты.</div>
+          </div>
+        </aside>
+      </section>
+
+      <footer>
+        <div>© SUNSET — CHEAT& CHEAT • Все права защищены</div>
+        <div class="links">
+          <a class="ghost" href="#terms">Условия</a>
+          <a class="ghost" href="#support">Поддержка</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal-back" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h4 id="modalTitle">Оформление заказа</h4>
+      <div id="modalBody" style="margin-top:8px">
+        <p class="meta">Выбран товар: <strong id="selProd">—</strong></p>
+        <p class="meta">Цена: <strong id="selPrice">—</strong></p>
+      </div>
+
+      <div style="margin-top:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <button id="payTelegram" class="pay">Оплатить через Telegram</button>
+        <button id="payManual" class="pay">Связаться вручную</button>
+        <button id="closeModal" class="close">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* ============================
+   Audio engine: WebAudio beat + sfx
+   - kick on beats
+   - hi-hat on off-beats
+   - UI click/hover sounds
+   - tempo control and beat pulse event
+   ============================ */
+(() => {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  let ctx = null;
+  let masterGain = null;
+  let running = false;
+  let tempo = 110; // BPM (можешь менять)
+  let lookahead = 0.1;
+  let scheduleAheadTime = 0.1;
+  let current16thNote = 0;
+  let nextNoteTime = 0.0;
+  let timerID = null;
+  let volume = 0.5;
+  let beatPulse = false;
+  // scheduling array for UI pulses
+  let scheduledBeats = [];
+
+  function initAudio() {
+    if (ctx) return;
+    ctx = new AudioContext();
+    masterGain = ctx.createGain();
+    masterGain.gain.value = volume;
+    masterGain.connect(ctx.destination);
+  }
+
+  // percussion simple synths
+  function playKick(time) {
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = "sine";
+    o.frequency.setValueAtTime(120, time);
+    o.frequency.exponentialRampToValueAtTime(40, time + 0.15);
+    g.gain.setValueAtTime(1, time);
+    g.gain.exponentialRampToValueAtTime(0.001, time + 0.25);
+    o.connect(g);
+    g.connect(masterGain);
+    o.start(time);
+    o.stop(time + 0.3);
+  }
+
+  function playHat(time) {
+    // high-pass noise
+    const bufferSize = 2 * ctx.sampleRate;
+    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const output = noiseBuffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) output[i] = Math.random() * 2 - 1;
+    const noise = ctx.createBufferSource();
+    noise.buffer = noiseBuffer;
+    const bandpass = ctx.createBiquadFilter();
+    bandpass.type = "highpass";
+    bandpass.frequency.value = 7000;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0.0001, time);
+    g.gain.linearRampToValueAtTime(0.6, time + 0.001);
+    g.gain.exponentialRampToValueAtTime(0.001, time + 0.08);
+    noise.connect(bandpass);
+    bandpass.connect(g);
+    g.connect(masterGain);
+    noise.start(time);
+    noise.stop(time + 0.09);
+  }
+
+  function playClick(time) {
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = "square";
+    o.frequency.setValueAtTime(1200, time);
+    g.gain.setValueAtTime(0.0001, time);
+    g.gain.exponentialRampToValueAtTime(0.8, time + 0.001);
+    g.gain.exponentialRampToValueAtTime(0.0001, time + 0.06);
+    o.connect(g);
+    g.connect(masterGain);
+    o.start(time);
+    o.stop(time + 0.07);
+  }
+
+  // scheduling loop
+  function nextNote() {
+    const secondsPerBeat = 60.0 / tempo;
+    nextNoteTime += 0.5 * secondsPerBeat; // 8th notes
+    current16thNote++;
+    if (current16thNote === 8) { current16thNote = 0; }
+  }
+
+  function scheduleNote(beatNumber, time) {
+    // kick on downbeat (every 4 eighths), hat on off-beat
+    if (beatNumber % 4 === 0) {
+      playKick(time);
+      scheduledBeats.push({time, type:'kick'});
+    } else if (beatNumber % 2 === 0) {
+      playHat(time);
+      scheduledBeats.push({time, type:'hat'});
+    }
+  }
+
+  function scheduler() {
+    while (nextNoteTime < ctx.currentTime + scheduleAheadTime) {
+      scheduleNote(current16thNote, nextNoteTime);
+      nextNote();
+    }
+    timerID = window.setTimeout(scheduler, lookahead * 1000);
+  }
+
+  function startBeat() {
+    if (!ctx) initAudio();
+    if (ctx.state === 'suspended') ctx.resume();
+    running = true;
+    current16thNote = 0;
+    nextNoteTime = ctx.currentTime + 0.05;
+    scheduler();
+    startPulseLoop();
+    document.documentElement.classList.add('beat-1');
+    playerStatusEl && (playerStatusEl.textContent = 'Beat ON');
+  }
+
+  function stopBeat() {
+    running = false;
+    window.clearTimeout(timerID);
+    scheduledBeats = [];
+    stopPulseLoop();
+    document.documentElement.classList.remove('beat-1');
+    playerStatusEl && (playerStatusEl.textContent = 'Offline');
+  }
+
+  // simple UI beat pulse: toggle CSS variable each 250ms synchronized approximately
+  let pulseTimer = null;
+  function startPulseLoop() {
+    if (pulseTimer) return;
+    pulseTimer = setInterval(() => {
+      // toggle custom root var to cause scale
+      const s = document.documentElement.classList.contains('beat-1') ? 'beat-0' : 'beat-1';
+      document.documentElement.classList.toggle('beat-1');
+      // briefly add pulse class to elements
+      document.querySelectorAll('.pulse-on-beat').forEach(el => {
+        el.style.transform = 'scale(1.02)';
+        el.style.transition = 'transform .12s';
+        setTimeout(()=> el.style.transform = '', 120);
+      });
+    }, (60/tempo)*500); // every 0.5 beat
+  }
+  function stopPulseLoop() {
+    if (!pulseTimer) return;
+    clearInterval(pulseTimer); pulseTimer = null;
+  }
+
+  // UI sfx for hover / click (uses playClick)
+  function uiClick() {
+    if (!ctx) return;
+    playClick(ctx.currentTime + 0.01);
+  }
+
+  // volume control
+  function setVolume(v) {
+    volume = v;
+    if (masterGain) masterGain.gain.setTargetAtTime(v, ctx.currentTime, 0.01);
+  }
+
+  // expose controls
+  window.AudioEngine = {
+    init: initAudio,
+    start: startBeat,
+    stop: stopBeat,
+    toggle: function() { if (running) this.stop(); else this.start(); },
+    click: uiClick,
+    setVolume
+  };
+})();
+
+/* ============================
+   UI interactions, modal, buttons
+   ============================ */
+document.addEventListener('DOMContentLoaded', () => {
+  const playBtn = document.getElementById('playBtn');
+  const muteBtn = document.getElementById('muteBtn');
+  const volumeSlider = document.getElementById('volume');
+  const openBuyTop = document.getElementById('openBuyTop');
+  const buyButtons = document.querySelectorAll('.buy');
+  const modal = document.getElementById('modal');
+  const selProd = document.getElementById('selProd');
+  const selPrice = document.getElementById('selPrice');
+  const closeModal = document.getElementById('closeModal');
+  const payTelegram = document.getElementById('payTelegram');
+  const payManual = document.getElementById('payManual');
+  const playerStatus = document.getElementById('playerStatus');
+  window.playerStatusEl = playerStatus;
+
+  let isMuted = false;
+
+  playBtn.addEventListener('click', async () => {
+    // need user gesture to start audio
+    AudioEngine.init();
+    AudioEngine.start();
+    AudioEngine.click();
+    playBtn.textContent = 'Stop Beat';
+  });
+
+  muteBtn.addEventListener('click', () => {
+    isMuted = !isMuted;
+    if (isMuted) {
+      document.documentElement.style.setProperty('--master-muted','1');
+      if (typeof AudioContext !== 'undefined' && window.AudioEngine) {
+        window.AudioEngine.setVolume(0);
+      }
+      muteBtn.textContent = 'Unmute';
+    } else {
+      window.AudioEngine.setVolume(parseFloat(volumeSlider.value));
+      muteBtn.textContent = 'Mute';
+    }
+  });
+
+  volumeSlider.addEventListener('input', (e) => {
+    const v = parseFloat(e.target.value);
+    if (window.AudioEngine) window.AudioEngine.setVolume(v);
+  });
+
+  // open modal
+  function openModalFor(product, price){
+    selProd.textContent = product;
+    selPrice.textContent = price + ' ₽';
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden','false');
+  }
+
+  buyButtons.forEach(b => {
+    b.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const p = b.getAttribute('data-product');
+      const price = b.getAttribute('data-price');
+      openModalFor(p, price);
+      // sfx
+      if (window.AudioEngine) window.AudioEngine.click();
+    });
+    b.addEventListener('mouseenter', () => { if (window.AudioEngine) window.AudioEngine.click(); });
+  });
+
+  openBuyTop.addEventListener('click', () => {
+    openModalFor('CHEAT/ CHEAT — Выбор', '—');
+    if (window.AudioEngine) window.AudioEngine.click();
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
+    if (window.AudioEngine) window.AudioEngine.click();
+  });
+
+  payTelegram.addEventListener('click', () => {
+    // replace with real Telegram link to SUNSET
+    const tgUrl = 'https://t.me/mogilawr'; // <- Заменить на реальную ссылку
+    window.open(tgUrl, '_blank');
+    if (window.AudioEngine) window.AudioEngine.click();
+  });
+
+  payManual.addEventListener('click', () => {
+    // open chat or copy contact
+    navigator.clipboard && navigator.clipboard.writeText('@cfgup').then(()=> {
+      alert('Контакт скопирован: @cfgup — вставьте в Telegram и напишите.');
+    }).catch(()=> {
+      alert('Скопируйте контакт вручную: @cfgup');
+    });
+    if (window.AudioEngine) window.AudioEngine.click();
+  });
+
+  // small UI sfx for header links
+  document.querySelectorAll('nav a, nav button, .ghost').forEach(el => {
+    el.addEventListener('mouseenter', ()=> { if (window.AudioEngine) window.AudioEngine.click(); });
+    el.addEventListener('click', ()=> { if (window.AudioEngine) window.AudioEngine.click(); });
+  });
+
+  // initial volume
+  window.AudioEngine.setVolume(parseFloat(volumeSlider.value));
+
+  // accessibility: keyboard close modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+    }
+  });
+
+  // small animated glitch on title every few seconds
+  const glitchText = document.querySelector('.glitch');
+  setInterval(()=> {
+    glitchText.style.transform = 'translateX(-2px) skewX(-2deg)';
+    setTimeout(()=> glitchText.style.transform = '', 120);
+  }, 4200);
+});
+</script>
+</body>
+</html>

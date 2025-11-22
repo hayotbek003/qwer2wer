@@ -1,129 +1,187 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Felix — CFG Пакеты</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #0b0f1a;
-            font-family: "Exo 2", sans-serif;
-            color: white;
-        }
-        header {
-            padding: 20px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(4px);
-            position: sticky;
-            top: 0;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-            color: #00eaff;
-        }
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 40px auto;
-        }
-        .cfg-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: #111626;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-            transition: 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.45);
-        }
-        .card h3 {
-            margin-top: 0;
-            color: #00eaff;
-            font-size: 22px;
-        }
-        .card p {
-            color: #cfd6e2;
-            font-size: 15px;
-        }
-        .price {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #ff5500;
-            font-weight: bold;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 14px;
-            padding: 10px 18px;
-            background: #ff5500;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #ff7b33;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SUNSET — CFG Пакеты</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: #0b0c0f;
+    font-family: "Exo 2", sans-serif;
+    color: #fff;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #ff0000;
+    text-shadow: 0 0 15px #ff0000, 0 0 30px #ff3333;
+    animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff4444; }
+    50% { text-shadow: 0 0 20px #ff5500, 0 0 40px #ff6666; }
+    100% { text-shadow: 0 0 15px #ff0000, 0 0 30px #ff3333; }
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: linear-gradient(145deg, #1c0c0c, #330000);
+    border: 2px solid #ff2222;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255,34,34,0.4);
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+}
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 35px rgba(255,34,34,0.8), 0 0 60px rgba(255,0,0,0.3);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #ff5555;
+    text-shadow: 0 0 8px #ff5555;
+}
+
+.card p {
+    color: #f0dcdc;
+    font-size: 15px;
+    line-height: 1.5em;
+    margin: 10px 0;
+}
+
+.price a {
+    display: inline-block;
+    margin: 6px 0;
+    padding: 12px 16px;
+    background: #ff0000;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(255,0,0,0.5);
+    transition: 0.3s;
+}
+.price a:hover {
+    background: #ff4444;
+    box-shadow: 0 0 20px rgba(255,68,68,0.9), 0 0 40px rgba(255,34,34,0.7);
+    transform: scale(1.05);
+}
+</style>
 </head>
 <body>
 <header>
-    <h1>CFG Пакеты от Felix</h1>
+    <h1>CFG Пакеты от SUNSET</h1>
 </header>
 
 <div class="container">
-    <div class="cfg-grid">
+    <div class="product-grid">
 
         <div class="card">
-            <h3>CFG #1 — ONE CFG</h3>
-            <p> 1.Улучшение залета 35%
-                2.Плавность игры и без лагов
-                3.В основном в тело и + - голова</p>
-            <p class="price">Цена: 450₽</p>
-           <a href="https://t.me/uktamgg" class="btn" target="_blank">Купить</a>
+            <h3>ZOLO CHEAT</h3>
+            <p>
+                Функции Чита:<br>
+                ЕСП НА ВСЕ (ВХ)<br>
+                Aim3.2 - Aimbot<br>
+                NO NEED VPN<br>
+                CRASH FIXED<br>
+                ANTIBAN<br>
+                32-64Bit
+            </p>
+            <p class="price">
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20ZOLO%20CHEAT%20на%201%20день" target="_blank">1 день - 170₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20ZOLO%20CHEAT%20на%203%20дня" target="_blank">3 дня - 400₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20ZOLO%20CHEAT%20на%207%20дней" target="_blank">7 дней - 800₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20ZOLO%20CHEAT%20на%2014%20дней" target="_blank">14 дней - 1000₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20ZOLO%20CHEAT%20на%2030%20дней" target="_blank">30 дней - 1500₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20ZOLO%20CHEAT%20на%2060%20дней" target="_blank">60 дней - 2000₽</a>
+            </p>
         </div>
 
         <div class="card">
-            <h3>CFG #2 —  GOOD CFG</h3>
-            <p> 1.Улучшение реги 45%
-                2.Улучшение FPS
-                3.Хорошая рега урона
-                4.Плавность игры</p>
-            <p class="price">Цена: 900₽</p>
-           <a href="https://t.me/uktamgg" class="btn" target="_blank">Купить</a>
+            <h3>PULSE X (64-bit)</h3>
+            <p>
+                Функции:<br>
+                Аимбот — точность и скорость на новом уровне<br>
+                ВХ (ESP) — полный контроль над картой<br>
+                Memory — стабильная работа без просадок<br>
+                Скинхак — изменение визуала/скинов<br>
+                Полная защита и безопасность
+            </p>
+            <p class="price">
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20PULSE%20X%2064-bit%20на%201%20день" target="_blank">1 день — 140₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20PULSE%20X%2064-bit%20на%203%20дня" target="_blank">3 дня — 300₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20PULSE%20X%2064-bit%20на%207%20дней" target="_blank">7 дней — 500₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20PULSE%20X%2064-bit%20на%2014%20дней" target="_blank">14 дней — 800₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20PULSE%20X%2064-bit%20на%2030%20дней" target="_blank">30 дней — 1100₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20PULSE%20X%2064-bit%20на%2060%20дней" target="_blank">60 дней — 1500₽</a>
+            </p>
         </div>
 
         <div class="card">
             <h3>CFG #3 — TWI!T CFG</h3>
-            <p> 1.Улучшение залета 65%
-                2.Улучшение FPS 50%
-                3.Стабильный пинг
-                4.В основном в голову
-                5.Очень хорошая оптимизация</p>
-            <p class="price">Цена: 1300₽</p>
-           <a href="https://t.me/uktamgg" class="btn" target="_blank">Купить</a>
+            <p>
+                Функции:<br>
+                Улучшение залета 65%<br>
+                Улучшение FPS 50%<br>
+                Стабильный пинг<br>
+                В основном в голову<br>
+                Очень хорошая оптимизация
+            </p>
+            <p class="price">
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20TWI!T%20CFG%20на%201%20день" target="_blank">1 день — 140₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20TWI!T%20CFG%20на%203%20дня" target="_blank">3 дня — 300₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20TWI!T%20CFG%20на%207%20дней" target="_blank">7 дней — 500₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20TWI!T%20CFG%20на%2014%20дней" target="_blank">14 дней — 800₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20TWI!T%20CFG%20на%2030%20дней" target="_blank">30 дней — 1100₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20TWI!T%20CFG%20на%2060%20дней" target="_blank">60 дней — 1500₽</a>
+            </p>
         </div>
 
         <div class="card">
-            <h3>CFG #4 — DEAD VFG </h3>
-            <p> 1.Улучшение залета 85%
-                2.Улучшение FPS 85%
-                3.Улучшение точность пуль 70%
-                4.Почти все пули в голову
-                5.Красивая графика
-                6.Максимальная оптимизация </p>
-            <p class="price">Цена: 1900₽</p>
-           <a href="https://t.me/uktamgg" class="btn" target="_blank">Купить</a>
+            <h3>Z MOD</h3>
+            <p>
+                Функции:<br>
+                Чит с большим функционалом и лучшим антибаном<br>
+                Айпад вид с оптимизацией в 120 FPS<br>
+                ВХ на 250+ метров<br>
+                Аим с настройкой скорости наводки<br>
+                Скинхак (новое обновление)
+            </p>
+            <p class="price">
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20Z%20MOD%20на%201%20день" target="_blank">1 день — 150₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20Z%20MOD%20на%203%20дня" target="_blank">3 дня — 350₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20Z%20MOD%20на%207%20дней" target="_blank">7 дней — 600₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20Z%20MOD%20на%2014%20дней" target="_blank">14 дней — 900₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20Z%20MOD%20на%2030%20дней" target="_blank">30 дней — 1200₽</a><br>
+                <a href="https://t.me/mogilawr?text=Привет,%20я%20хочу%20купить%20Z%20MOD%20на%2060%20дней" target="_blank">60 дней — 1600₽</a>
+            </p>
         </div>
 
     </div>
